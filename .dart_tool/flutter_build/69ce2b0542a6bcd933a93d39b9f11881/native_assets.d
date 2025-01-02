@@ -1,0 +1,1 @@
+ /Users/mac/Desktop/development/Konjac/.dart_tool/flutter_build/69ce2b0542a6bcd933a93d39b9f11881/native_assets.yaml: 
