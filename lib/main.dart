@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kon/app/localization/languages.dart';
-import 'package:kon/app/modules/splash/controllers/splash_controller.dart';
-import 'package:kon/app/theme/theme.dart';
-import 'app/routes/app_pages.dart';
+import 'package:kon/app/config/localization/languages.dart';
+import 'package:kon/app/core/injections.dart';
+import 'package:kon/app/presentation/modules/splash/controllers/splash_controller.dart';
+import 'package:kon/app/config/theme/theme.dart';
+import 'app/core/routes/app_pages.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initInjections();
   Get.put(SplashController());
   runApp(
     GetMaterialApp(
