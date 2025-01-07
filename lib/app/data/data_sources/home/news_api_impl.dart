@@ -1,7 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
-
 import 'package:kon/app/config/constants/network_constants.dart';
 import 'package:kon/app/core/error/app_exceptions.dart';
 import 'package:kon/app/data/data_sources/home/abstract_news_api.dart';
@@ -17,12 +15,9 @@ class NewsApiImpl extends AbstractNewsApi {
       final response = await http
           .get(uri)
           .timeout(Duration(seconds: NetworkConstants.getApiTimeoutDuration));
-      var decode = jsonDecode(response.body);
       var newsModel = newsModelFromJson(response.body);
       List<NewsResult> list = newsModel.results!.toList();
-      print(list);
       return list;
-// return decode.
     } on SocketException {
       throw SocketException("No Internet!");
     } on TimeoutException {

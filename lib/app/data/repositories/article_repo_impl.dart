@@ -17,7 +17,7 @@ class ArticlesRepositoryImpl extends AbstractArticleRepo {
     try {
       final result = await articlesApi.getNews(params);
       return result;
-    } on ServerException catch (e) {
+    } on ServerException catch (err) {
       throw ServerException();
     }
   }
